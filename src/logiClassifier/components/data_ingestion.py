@@ -13,7 +13,7 @@ class DataIngestion:
 
     def download_file(self):
         try:
-            dataset_url = self.config.source_url
+            dataset_url = self.config.source_URL
             zip_download_dir = self.config.local_data_file
             os.makedirs("artifacts/data_ingestion", exist_ok=True)
             logger.info(f"Downloading data from the {dataset_url} into file {zip_download_dir}")
