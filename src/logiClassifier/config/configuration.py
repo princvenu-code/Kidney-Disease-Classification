@@ -52,7 +52,7 @@ class ConfigurationManager:
         training = self.config.training
         prepare_base_model = self.config.prepare_base_model
         params = self.params
-        training_data = os.path.join(self.config.data_ingestion.unzip_dir, "kidney-ct-scan-image")
+        training_data = os.path.join(self.config.data_ingestion.unzip_dir, "KIDNEY-DISEASE_DATASET-2")
         util.create_directories([
             Path(training.root_dir)
         ])
@@ -74,8 +74,8 @@ class ConfigurationManager:
     def get_evaluation_config(self) -> entity.EvaluationConfig:
         eval_config = entity.EvaluationConfig(
             path_of_model="artifacts/training/model.h5",
-            training_data="artifacts/data_ingestion/kidney-ct-scan-image",
-            mlflow_uri="https://dagshub.com/entbappy/Kidney-Disease-Classification-MLflow-DVC.mlflow",
+            training_data="artifacts/data_ingestion/KIDNEY-DISEASE_DATASET-2",
+            mlflow_uri="https://dagshub.com/princvenu-code/Kidney-Disease-Classification.mlflow",
             all_params=self.params,
             params_image_size=self.params.IMAGE_SIZE,
             params_batch_size=self.params.BATCH_SIZE
